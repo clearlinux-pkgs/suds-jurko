@@ -4,12 +4,12 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 3
+Release  : 4
 URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
 Group    : Development/Tools
-License  : (specified GPL-3.0 LGPL-3.0 classifiers) using
+License  : GPL-3.0 LGPL-3.0
 Requires: suds-jurko-python
 BuildRequires : pbr
 BuildRequires : pip
