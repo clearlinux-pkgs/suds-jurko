@@ -4,7 +4,7 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 4
+Release  : 5
 URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
