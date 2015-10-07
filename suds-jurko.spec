@@ -4,7 +4,7 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 5
+Release  : 6
 URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
@@ -48,4 +48,6 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot}
 
 %files python
 %defattr(-,root,root,-)
+%exclude /usr/lib/python3.5/site-packages/tests/__init__.py
+%exclude /usr/lib/python3.5/site-packages/tests/__pycache__/__init__.cpython-35.pyc
 /usr/lib/python*/*
