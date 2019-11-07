@@ -4,20 +4,16 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 22
+Release  : 24
 URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
 Group    : Development/Tools
 License  : LGPL-3.0
-Requires: suds-jurko-python3
-Requires: suds-jurko-license
-Requires: suds-jurko-python
+Requires: suds-jurko-license = %{version}-%{release}
+Requires: suds-jurko-python = %{version}-%{release}
+Requires: suds-jurko-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python3-dev
-BuildRequires : setuptools
 
 %description
 ---------------------------------------
@@ -37,7 +33,7 @@ license components for the suds-jurko package.
 %package python
 Summary: python components for the suds-jurko package.
 Group: Default
-Requires: suds-jurko-python3
+Requires: suds-jurko-python3 = %{version}-%{release}
 
 %description python
 python components for the suds-jurko package.
@@ -54,36 +50,45 @@ python3 components for the suds-jurko package.
 
 %prep
 %setup -q -n suds-jurko-0.6
+cd %{_builddir}/suds-jurko-0.6
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1532383111
-python3 setup.py build -b py3
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1574715664
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/suds-jurko
-cp LICENSE.txt %{buildroot}/usr/share/doc/suds-jurko/LICENSE.txt
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/suds-jurko
+cp %{_builddir}/suds-jurko-0.6/LICENSE.txt %{buildroot}/usr/share/package-licenses/suds-jurko/adbfde070cbf605aea1261de577ac0d2b2c12d68
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## Remove excluded files
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__init__.py
+rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/__init__.cpython-3*.pyc
 
 %files
 %defattr(-,root,root,-)
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/suds-jurko/LICENSE.txt
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/suds-jurko/adbfde070cbf605aea1261de577ac0d2b2c12d68
 
 %files python
 %defattr(-,root,root,-)
 
 %files python3
 %defattr(-,root,root,-)
-%exclude /usr/lib/python3.7/site-packages/tests/__init__.py
-%exclude /usr/lib/python3.7/site-packages/tests/__pycache__/__init__.cpython-37.pyc
 /usr/lib/python3*/*
