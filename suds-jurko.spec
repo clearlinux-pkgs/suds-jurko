@@ -4,7 +4,7 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 27
+Release  : 28
 URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
@@ -16,11 +16,11 @@ Requires: suds-jurko-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-This documentation has been started because we needed some place to put our
-design, research & development related notes collected collected while hacking
-on this project. The official suds project documentation has not been included
-in this fork, as it was not stored in the same repository as the original
-project's code base.
+---------------------------------------
+        Lightweight SOAP client (Jurko's fork).
+        ---------------------------------------
+        
+          Based on the original 'suds' project by Jeff Ortel (jortel at redhat
 
 %package license
 Summary: license components for the suds-jurko package.
@@ -43,7 +43,7 @@ python components for the suds-jurko package.
 Summary: python3 components for the suds-jurko package.
 Group: Default
 Requires: python3-core
-Provides: pypi(suds-jurko)
+Provides: pypi(suds_jurko)
 
 %description python3
 python3 components for the suds-jurko package.
@@ -58,8 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582914863
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583458054
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
