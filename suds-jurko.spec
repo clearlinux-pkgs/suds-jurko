@@ -4,7 +4,7 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 28
+Release  : 29
 URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
@@ -58,11 +58,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583458054
+export SOURCE_DATE_EPOCH=1594835472
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
@@ -76,9 +76,9 @@ python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
-## Remove excluded files
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__init__.py
-rm -f %{buildroot}/usr/lib/python3*/site-packages/tests/__pycache__/__init__.cpython-3*.pyc
+## install_append content
+rm -rf %{buildroot}/usr/lib/python3*/site-packages/tests
+## install_append end
 
 %files
 %defattr(-,root,root,-)
