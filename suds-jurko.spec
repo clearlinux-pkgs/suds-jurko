@@ -4,9 +4,9 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 29
-URL      : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
-Source0  : https://bitbucket.org/jurko/suds/downloads/suds-jurko-0.6.tar.bz2
+Release  : 30
+URL      : https://files.pythonhosted.org/packages/bd/6f/54fbf0999a606680d27c69b1ad12dfff62768ecb9fe48524cebda6eb4423/suds-jurko-0.6.tar.bz2
+Source0  : https://files.pythonhosted.org/packages/bd/6f/54fbf0999a606680d27c69b1ad12dfff62768ecb9fe48524cebda6eb4423/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
 Group    : Development/Tools
 License  : LGPL-3.0
@@ -58,7 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1594835472
+export SOURCE_DATE_EPOCH=1598319311
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
