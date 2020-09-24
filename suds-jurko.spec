@@ -4,7 +4,7 @@
 #
 Name     : suds-jurko
 Version  : 0.6
-Release  : 30
+Release  : 31
 URL      : https://files.pythonhosted.org/packages/bd/6f/54fbf0999a606680d27c69b1ad12dfff62768ecb9fe48524cebda6eb4423/suds-jurko-0.6.tar.bz2
 Source0  : https://files.pythonhosted.org/packages/bd/6f/54fbf0999a606680d27c69b1ad12dfff62768ecb9fe48524cebda6eb4423/suds-jurko-0.6.tar.bz2
 Summary  : Lightweight SOAP client (Jurko's fork)
